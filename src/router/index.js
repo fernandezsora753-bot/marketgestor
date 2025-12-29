@@ -1,17 +1,9 @@
-import { defineRouter } from '#q-app/wrappers'
+import { route } from 'quasar/wrappers'
 import { createRouter, createMemoryHistory, createWebHistory, createWebHashHistory } from 'vue-router'
 import routes from './routes'
+import { auth } from '../services/firebase'
 
-/*
- * If not building with SSR mode, you can
- * directly export the Router instantiation;
- *
- * The function below can be async too; either use
- * async/await or return a Promise which resolves
- * with the Router instance.
- */
-
-export default defineRouter(function (/* { store, ssrContext } */) {
+export default route(function (/* { store, ssrContext } */) {
   const createHistory = process.env.SERVER
     ? createMemoryHistory
     : (process.env.VUE_ROUTER_MODE === 'history' ? createWebHistory : createWebHashHistory)
@@ -19,11 +11,26 @@ export default defineRouter(function (/* { store, ssrContext } */) {
   const Router = createRouter({
     scrollBehavior: () => ({ left: 0, top: 0 }),
     routes,
-
-    // Leave this as is and make changes in quasar.conf.js instead!
-    // quasar.conf.js -> build -> vueRouterMode
-    // quasar.conf.js -> build -> publicPath
     history: createHistory(process.env.VUE_ROUTER_BASE)
+  })
+
+  // ========== GUARDIA DE NAVEGACIÓN ==========
+  // Protege rutas que requieren autenticación
+  Router.beforeEach((to, from, next) => {
+    const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+    const requiresGuest = to.matched.some(record => record.meta.requiresGuest)
+    const isAuthenticated = auth.currentUser
+
+    if (requiresAuth && !isAuthenticated) {
+      // Ruta protegida pero usuario no autenticado → Login
+      next('/login')
+    } else if (requiresGuest && isAuthenticated) {
+      // Ruta de invitado pero usuario autenticado → Dashboard
+      next('/')
+    } else {
+      // Todo bien, continuar
+      next()
+    }
   })
 
   return Router
