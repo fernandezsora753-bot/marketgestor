@@ -1,20 +1,20 @@
 <template>
-  <div class="fullscreen bg-grey-2 text-center q-pa-md flex flex-center">
+  <q-page class="flex flex-center text-center">
     <div>
-      <div style="font-size: 30vh">
-        404
-      </div>
-
-      <div class="text-h4 q-mb-md">
-        Página no encontrada
-      </div>
-      
-      <q-btn
-        label="Ir al inicio"
-        color="primary"
-        size="lg"
-        @click="$router.push('/')"
+      <div class="text-h1 text-grey">404</div>
+      <div class="text-h4 q-mt-md">Página no encontrada</div>
+      <p class="q-mt-md">La página que buscas no existe o fue movida.</p>
+      <q-btn 
+        color="primary" 
+        label="Volver al Inicio" 
+        to="/" 
+        class="q-mt-md"
       />
     </div>
-  </div>
+  </q-page>
 </template>
+
+<script setup>
+// Página 404
+</script>
+EOF

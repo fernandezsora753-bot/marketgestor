@@ -1,15 +1,13 @@
 <template>
-  <router-view />
+  <q-layout view="hHh lpR fFf">
+    <q-page-container>
+      <router-view />
+    </q-page-container>
+  </q-layout>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
-import { useAuth } from '@/composables/useAuth'
-
-// Inicializar autenticación al cargar la app
-const { initAuth } = useAuth()
-
-onMounted(() => {
-  initAuth()
-})
+// App principal - MarketGestor
+console.log('App MarketGestor iniciada')
 </script>
+EOF
