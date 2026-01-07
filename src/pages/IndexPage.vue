@@ -119,93 +119,87 @@
 
         <!-- Tarjetas de funcionalidades -->
         <div class="row q-col-gutter-md q-mb-md">
-          <!-- CLIENTES -->
-          <div class="col-12 col-md-4">
-            <q-card class="my-card feature-card">
-              <q-card-section>
-                <div class="text-center q-mb-md">
-                  <q-icon name="people" size="xl" color="primary" />
-                </div>
-                <div class="text-h6 text-primary text-center">👥 Clientes</div>
-                <p class="text-center">Gestiona tu base de datos de clientes</p>
-              </q-card-section>
-              <q-card-actions align="center">
-                <q-btn flat color="primary" label="Gestionar" to="/clientes" />
-              </q-card-actions>
-            </q-card>
-          </div>
-
-          <!-- VENTAS -->
-          <div class="col-12 col-md-4">
-            <q-card class="my-card feature-card">
-              <q-card-section>
-                <div class="text-center q-mb-md">
-                  <q-icon name="shopping_cart" size="xl" color="green" />
-                </div>
-                <div class="text-h6 text-green text-center">💰 Ventas</div>
-                <p class="text-center">Registra ventas y seguimiento completo</p>
-              </q-card-section>
-              <q-card-actions align="center">
-                <q-btn flat color="green" label="Ver Ventas" to="/ventas" />
-              </q-card-actions>
-            </q-card>
-          </div>
-          
-          <!-- PRODUCTOS -->
-          <div class="col-12 col-md-4">
-            <q-card class="my-card feature-card">
-              <q-card-section>
-                <div class="text-center q-mb-md">
-                  <q-icon name="inventory" size="xl" color="orange" />
-                </div>
-                <div class="text-h6 text-orange text-center">📦 Productos</div>
-                <p class="text-center">Gestiona tu inventario y precios</p>
-              </q-card-section>
-              <q-card-actions align="center">
-                <q-btn flat color="orange" label="Explorar" to="/productos" />
-              </q-card-actions>
-            </q-card>
-          </div>
+  <!-- CLIENTES -->
+  <div class="col-12 col-md-4">
+    <q-card class="my-card feature-card">
+      <q-card-section>
+        <div class="text-center q-mb-md">
+          <q-icon name="people" size="xl" color="primary" />
         </div>
+        <div class="text-h6 text-primary text-center">👥 Clientes</div>
+        <p class="text-center">Gestiona tu base de datos de clientes</p>
+      </q-card-section>
+      <q-card-actions align="center">
+        <q-btn flat color="primary" label="Gestionar" to="/clientes" />
+      </q-card-actions>
+    </q-card>
+  </div>
 
-        <!-- Acceso Rápido -->
-        <q-card class="my-card q-mb-md">
-          <q-card-section>
-            <div class="text-h6 q-mb-md">⚡ Acciones Rápidas</div>
-            <div class="row q-col-gutter-sm">
-              <div class="col-12 col-md-4">
-                <q-btn 
-                  unelevated 
-                  color="primary" 
-                  icon="flash_on" 
-                  label="Venta Rápida"
-                  class="full-width"
-                  to="/ventas/rapidas"
-                />
-              </div>
-              <div class="col-12 col-md-4">
-                <q-btn 
-                  unelevated 
-                  color="green" 
-                  icon="add_shopping_cart" 
-                  label="Nueva Venta"
-                  class="full-width"
-                  to="/ventas"
-                />
-              </div>
-              <div class="col-12 col-md-4">
-                <q-btn 
-                  unelevated 
-                  color="secondary" 
-                  icon="person_add" 
-                  label="Nuevo Cliente"
-                  class="full-width"
-                  to="/clientes"
-                />
-              </div>
-            </div>
-          </q-card-section>
-        </q-card>
+  <!-- VENTAS -->
+  <div class="col-12 col-md-4">
+    <q-card class="my-card feature-card">
+      <q-card-section>
+        <div class="text-center q-mb-md">
+          <q-icon name="shopping_cart" size="xl" color="green" />
+        </div>
+        <div class="text-h6 text-green text-center">💰 Ventas</div>
+        <p class="text-center">Registra ventas y seguimiento completo</p>
+      </q-card-section>
+      <q-card-actions align="center">
+        <q-btn flat color="green" label="Ver Ventas" to="/ventas" />
+      </q-card-actions>
+    </q-card>
+  </div>
+  
+  <!-- PRODUCTOS -->
+  <div class="col-12 col-md-4">
+    <q-card class="my-card feature-card">
+      <q-card-section>
+        <div class="text-center q-mb-md">
+          <q-icon name="inventory" size="xl" color="orange" />
+        </div>
+        <div class="text-h6 text-orange text-center">📦 Productos</div>
+        <p class="text-center">Gestiona tu inventario y precios</p>
+      </q-card-section>
+      <q-card-actions align="center">
+        <q-btn flat color="orange" label="Explorar" to="/productos" />
+      </q-card-actions>
+    </q-card>
+  </div>
+
+  <!-- INVENTARIO (NUEVA TARJETA) -->
+  <div class="col-12 col-md-4 q-mt-md">
+    <q-card class="my-card feature-card">
+      <q-card-section>
+        <div class="text-center q-mb-md">
+          <q-icon name="inventory_2" size="xl" color="blue" />
+        </div>
+        <div class="text-h6 text-blue text-center">📊 Inventario</div>
+        <p class="text-center">Control de stock y valor del inventario</p>
+      </q-card-section>
+      <q-card-actions align="center">
+        <q-btn flat color="blue" label="Ver Inventario" to="/inventario" />
+      </q-card-actions>
+    </q-card>
+  </div>
+
+  <!-- VENTAS RÁPIDAS -->
+  <div class="col-12 col-md-4 q-mt-md">
+    <q-card class="my-card feature-card">
+      <q-card-section>
+        <div class="text-center q-mb-md">
+          <q-icon name="flash_on" size="xl" color="purple" />
+        </div>
+        <div class="text-h6 text-purple text-center">⚡ Ventas Rápidas</div>
+        <p class="text-center">Venta rápida con carrito y stock en tiempo real</p>
+      </q-card-section>
+      <q-card-actions align="center">
+        <q-btn flat color="purple" label="Ir a Venta Rápida" to="/ventas/rapidas" />
+      </q-card-actions>
+    </q-card>
+  </div>
+</div>
+
 
         <!-- SECCIÓN DE DIAGNÓSTICO (OCULTA) -->
         <!-- ⚠️ NO BORRAR - Código comentado para pruebas técnicas -->

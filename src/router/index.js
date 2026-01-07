@@ -31,15 +31,19 @@ const routes = [
         name: 'Clientes',
         component: () => import('pages/ClientesPage.vue')
       },
-      // ========================================
-      // NUEVA RUTA: PAGOS
-      // ========================================
       {
         path: 'pagos',
         name: 'Pagos',
         component: () => import('pages/PagosPage.vue')
-      }
+      },
       // ========================================
+      // AÑADE ESTA RUTA AQUÍ:
+      // ========================================
+      {
+        path: 'inventario',
+        name: 'Inventario',
+        component: () => import('pages/InventarioPage.vue')
+      }
     ]
   },
   {

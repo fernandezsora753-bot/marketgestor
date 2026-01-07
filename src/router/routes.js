@@ -10,7 +10,8 @@ const routes = [
         path: 'ventas/rapidas',
         component: () => import('pages/VentasRapidas.vue') 
       },
-      { path: 'productos', component: () => import('pages/ProductosPage.vue') }
+      { path: 'productos', component: () => import('pages/ProductosPage.vue') },
+      { path: 'inventario', component: () => import('pages/InventarioPage.vue') }
     ]
   },
   {
@@ -18,3 +19,5 @@ const routes = [
     component: () => import('pages/ErrorNotFound.vue')
   }
 ]
+
+export default routes
