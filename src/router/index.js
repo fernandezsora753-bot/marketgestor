@@ -30,7 +30,16 @@ const routes = [
         path: 'clientes',
         name: 'Clientes',
         component: () => import('pages/ClientesPage.vue')
+      },
+      // ========================================
+      // NUEVA RUTA: PAGOS
+      // ========================================
+      {
+        path: 'pagos',
+        name: 'Pagos',
+        component: () => import('pages/PagosPage.vue')
       }
+      // ========================================
     ]
   },
   {

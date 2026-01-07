@@ -12,6 +12,7 @@
         <q-btn flat label="📦 Productos" to="/productos" exact />
         <q-btn flat label="💰 Ventas" to="/ventas" exact />
         <q-btn flat label="👥 Clientes" to="/clientes" exact />
+        <q-btn flat label="💰 Pagos" to="/pagos" exact />
       </q-toolbar>
     </q-header>
 
