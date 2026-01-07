@@ -1,13 +1,7 @@
 <template>
-  <q-layout view="hHh lpR fFf">
-    <q-page-container>
-      <router-view />
-    </q-page-container>
-  </q-layout>
+  <router-view />
 </template>
 
 <script setup>
-// App principal - MarketGestor
-console.log('App MarketGestor iniciada')
+// Lógica de la aplicación si es necesario
 </script>
-EOF

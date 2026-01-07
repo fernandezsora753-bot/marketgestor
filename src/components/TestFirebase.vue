@@ -17,7 +17,7 @@
 
 <script setup>
 import { onMounted, ref } from 'vue'
-import { auth, db } from '../services/firebase'
+import { auth, db } from 'boot/firebase'
 
 const firebaseReady = ref(false)
 

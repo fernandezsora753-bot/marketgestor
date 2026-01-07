@@ -1,4 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { route } from 'quasar/wrappers'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
   {
@@ -7,7 +8,28 @@ const routes = [
     children: [
       { 
         path: '', 
+        name: 'home',
         component: () => import('pages/IndexPage.vue') 
+      },
+      {
+        path: 'ventas-rapidas',
+        name: 'VentasRapidas',
+        component: () => import('pages/VentasRapidas.vue')
+      },
+      {
+        path: 'productos',
+        name: 'Productos',
+        component: () => import('pages/ProductosPage.vue')
+      },
+      {
+        path: 'ventas',
+        name: 'Ventas',
+        component: () => import('pages/VentasPage.vue')
+      },
+      {
+        path: 'clientes',
+        name: 'Clientes',
+        component: () => import('pages/ClientesPage.vue')
       }
     ]
   },
@@ -17,11 +39,12 @@ const routes = [
   }
 ]
 
-const router = createRouter({
-  history: createWebHistory(),
-  routes
+export default route(function () {
+  const Router = createRouter({
+    scrollBehavior: () => ({ left: 0, top: 0 }),
+    routes,
+    history: createWebHashHistory(process.env.VUE_ROUTER_BASE)
+  })
+
+  return Router
 })
-
-export default router
-
-

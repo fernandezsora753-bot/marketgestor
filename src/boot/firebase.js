@@ -1,8 +1,8 @@
+import { boot } from 'quasar/wrappers'
 import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
 
-// 🔥 REEMPLAZA ESTOS VALORES CON LOS TUOS DE FIREBASE CONSOLE 🔥
 const firebaseConfig = {
   apiKey: "AIzaSyCrbPlt0FdekVjMwLrqB9tJG-wiPP9UNxM",
   authDomain: "market-gestor.firebaseapp.com",
@@ -13,12 +13,14 @@ const firebaseConfig = {
   appId: "1:742746406726:web:6d46f03a7c3103e03c2f47"
 }
 
-// Inicializar Firebase
 const app = initializeApp(firebaseConfig)
-
-// Exportar servicios
-export const auth = getAuth(app)
-export const db = getFirestore(app)
-export default app
+const auth = getAuth(app)
+const db = getFirestore(app)
 
 console.log('✅ Firebase MarketGestor CONECTADO')
+
+export default boot(() => {
+  // Firebase ya está inicializado
+})
+
+export { app, auth, db }

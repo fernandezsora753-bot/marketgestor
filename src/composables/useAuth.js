@@ -6,7 +6,7 @@ import {
   signOut,
   onAuthStateChanged
 } from 'firebase/auth'
-import { auth } from '../services/firebase'
+import { auth } from '../boot/firebase'
 
 // Estado global del usuario
 const user = ref(null)
