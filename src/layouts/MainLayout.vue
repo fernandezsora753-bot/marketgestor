@@ -17,7 +17,7 @@
         <q-toolbar-title>
           <div class="row items-center">
             <q-icon name="store" size="md" class="q-mr-sm" />
-            MarketGestor
+            Mi negocio
             <q-badge v-if="esMovil" color="orange" class="q-ml-sm">
               v1.0
             </q-badge>
@@ -169,22 +169,12 @@
             Ventas
           </q-item-label>
           
-          <q-item clickable v-ripple to="/ventas-rapidas">
-            <q-item-section avatar>
-              <q-icon name="flash_on" color="green" />
-            </q-item-section>
-            <q-item-section>
-              <q-item-label>Ventas Rápidas</q-item-label>
-              <q-item-label caption>Cobro rápido</q-item-label>
-            </q-item-section>
-          </q-item>
-          
           <q-item clickable v-ripple to="/ventas">
             <q-item-section avatar>
               <q-icon name="receipt" color="blue" />
             </q-item-section>
             <q-item-section>
-              <q-item-label>Historial Ventas</q-item-label>
+              <q-item-label>Ventas</q-item-label>
               <q-item-label caption>Todas las ventas</q-item-label>
             </q-item-section>
           </q-item>
@@ -210,12 +200,21 @@
               <q-icon name="shopping_bag" color="orange" />
             </q-item-section>
             <q-item-section>
-              <q-item-label>Catálogo</q-item-label>
+              <q-item-label>Productos</q-item-label>
               <q-item-label caption>Lista de productos</q-item-label>
             </q-item-section>
           </q-item>
           
-          <!-- INVENTARIO - ESTA ES LA RUTA IMPORTANTE -->
+          <q-item clickable v-ripple to="/proveedores">
+            <q-item-section avatar>
+              <q-icon name="local_shipping" color="indigo" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Proveedores</q-item-label>
+              <q-item-label caption>Gestión de proveedores</q-item-label>
+            </q-item-section>
+          </q-item>
+          
           <q-item clickable v-ripple to="/inventario">
             <q-item-section avatar>
               <q-icon name="inventory" color="deep-orange" />
@@ -250,26 +249,36 @@
           <!-- Sección Reportes -->
           <q-item-label header class="text-weight-bold text-grey-7 q-mt-md">
             <q-icon name="analytics" class="q-mr-sm" />
-            Reportes
+            Reportes & Estadísticas
           </q-item-label>
           
-          <q-item clickable v-ripple>
+          <q-item clickable v-ripple to="/reportes">
             <q-item-section avatar>
-              <q-icon name="trending_up" color="red" />
+              <q-icon name="analytics" color="red" />
             </q-item-section>
             <q-item-section>
-              <q-item-label>Ventas</q-item-label>
-              <q-item-label caption>Estadísticas</q-item-label>
+              <q-item-label>Reportes</q-item-label>
+              <q-item-label caption>Estadísticas y gráficos</q-item-label>
             </q-item-section>
           </q-item>
           
-          <q-item clickable v-ripple>
+          <q-item clickable v-ripple @click="exportarReporteRapido">
             <q-item-section avatar>
-              <q-icon name="show_chart" color="cyan" />
+              <q-icon name="trending_up" color="cyan" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Ventas</q-item-label>
+              <q-item-label caption>Análisis de ventas</q-item-label>
+            </q-item-section>
+          </q-item>
+          
+          <q-item clickable v-ripple @click="exportarInventarioRapido">
+            <q-item-section avatar>
+              <q-icon name="show_chart" color="amber" />
             </q-item-section>
             <q-item-section>
               <q-item-label>Inventario</q-item-label>
-              <q-item-label caption>Análisis</q-item-label>
+              <q-item-label caption>Análisis de stock</q-item-label>
             </q-item-section>
           </q-item>
 
@@ -307,6 +316,9 @@
             </q-chip>
             <div class="text-caption text-grey-6 q-mt-xs">
               v1.0 • © 2024
+            </div>
+            <div class="text-caption text-grey-5 q-mt-xs">
+              Sistema de gestión comercial
             </div>
           </div>
         </div>
@@ -411,6 +423,28 @@ const cerrarSesion = () => {
     // Aquí iría la lógica real de logout con Firebase Auth
     router.push('/login') // Si tienes página de login
   })
+}
+
+const exportarReporteRapido = () => {
+  $q.notify({
+    type: 'info',
+    message: '📊 Exportando reporte de ventas...',
+    icon: 'description',
+    timeout: 2000
+  })
+  // Navegar a la página de reportes
+  router.push('/reportes')
+}
+
+const exportarInventarioRapido = () => {
+  $q.notify({
+    type: 'info',
+    message: '📦 Exportando reporte de inventario...',
+    icon: 'inventory',
+    timeout: 2000
+  })
+  // Navegar a la página de reportes
+  router.push('/reportes?tab=productos')
 }
 
 // Inicialización

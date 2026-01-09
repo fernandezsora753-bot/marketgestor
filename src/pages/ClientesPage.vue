@@ -493,7 +493,7 @@ import { ref, computed, onMounted } from 'vue'
 import { db } from 'boot/firebase'
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, serverTimestamp, query, where } from 'firebase/firestore'
 import { useQuasar } from 'quasar'
-import RealizarPagoDialog from 'components/RealizarPagoDialog.vue'
+import RealizarPagoDialog from 'components/clientes/RealizarPagoDialog.vue'
 
 const $q = useQuasar()
 

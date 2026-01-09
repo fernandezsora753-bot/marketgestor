@@ -11,11 +11,7 @@ const routes = [
         name: 'home',
         component: () => import('pages/IndexPage.vue') 
       },
-      {
-        path: 'ventas-rapidas',
-        name: 'VentasRapidas',
-        component: () => import('pages/VentasRapidas.vue')
-      },
+
       {
         path: 'productos',
         name: 'Productos',
@@ -36,13 +32,23 @@ const routes = [
         name: 'Pagos',
         component: () => import('pages/PagosPage.vue')
       },
-      // ========================================
-      // AÑADE ESTA RUTA AQUÍ:
-      // ========================================
       {
         path: 'inventario',
         name: 'Inventario',
         component: () => import('pages/InventarioPage.vue')
+      },
+      // ========================================
+      // AÑADE ESTA RUTA - ES LO QUE FALTA
+      // ========================================
+      {
+        path: 'proveedores',
+        name: 'Proveedores',
+        component: () => import('pages/ProveedoresPage.vue')
+      },
+      {
+        path: 'reportes',
+        name: 'Reportes',
+        component: () => import('pages/ReportesPage.vue')
       }
     ]
   },
@@ -60,4 +66,4 @@ export default route(function () {
   })
 
   return Router
-})
+})  
